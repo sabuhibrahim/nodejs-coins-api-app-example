@@ -1,0 +1,17 @@
+{
+	"rule1":
+		{
+			"over":"9000", 
+			"description":"Over 9000"
+		},
+	"rule2":	
+		{
+			"change":"10",
+			"description":"Change 10%"
+		},
+	"rule3":
+		{
+			"change":"5000", 
+			"description":"Change 5000"
+		}
+}
