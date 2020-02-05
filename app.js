@@ -42,10 +42,10 @@ mongoose
   })
   .then(() => {
     console.log("Connection Successful");
-    // setInterval(()=>{
-    //   refresh()
-    //   .then(()=>console.log("Coins data Refreshed"));
-    // },10000);
+    setInterval(()=>{
+      refresh()
+      .then(()=>console.log("Coins data Refreshed"));
+    },10000);
   })
   .catch((err) => {
     console.log(err);
