@@ -4,6 +4,7 @@ const path = require('path');
 const cookieParser = require('cookie-parser');
 const logger = require('morgan');
 const mongoose = require('mongoose');
+const config = require('dotenv').config();
 
 const indexRouter = require('./routes/index');
 
@@ -35,16 +36,16 @@ app.use(function(err, req, res, next) {
 });
 
 mongoose
-  .connect("mongodb://localhost/cointest", {
+  .connect(process.env.DB, {
     useUnifiedTopology: true,
     useNewUrlParser: true,
   })
   .then(() => {
     console.log("Connection Successful");
-    setInterval(()=>{
-      refresh()
-      .then(()=>console.log("Coins data Refreshed"));
-    },10000);
+    // setInterval(()=>{
+    //   refresh()
+    //   .then(()=>console.log("Coins data Refreshed"));
+    // },10000);
   })
   .catch((err) => {
     console.log(err);

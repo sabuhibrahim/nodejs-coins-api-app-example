@@ -3,7 +3,7 @@ const https = require("https");
 const Config = require('dotenv').config();
 
 mongoose
-	.connect("mongodb://localhost/cointest", {
+	.connect(process.env.DB, {
 		useUnifiedTopology: true,
 		useNewUrlParser: true,
 	})
@@ -33,7 +33,7 @@ mongoose
 					coin.save();
 				
 				});
-				console.log(JSON.parse(data));
+				
 			console.log("OK");
 
 			});

@@ -24,9 +24,6 @@ let refresh = async() =>{
 			}).on("error", (err) => {
 				console.log("Error: " + err.message);
 			});
-			if (coins.length-1 === i){
-				console.log("Data Refreshed");
-			}
 		});
 	});
 };
