@@ -4,9 +4,7 @@ let schema = new mongoose.Schema({
 	coin: {type: mongoose.Types.ObjectId, ref: 'Coins'},
 	user: {type: Number, required: true},
 	rule: {type: String, required: true},
-	hourly : {type: Boolean, default: false},
-	daily : {type: Boolean, default: false},
-	weekly : {type: Boolean, default: false},
+	rule_value : {type: Number, required: true},
 });
 schema.set('timestamps', true);
 
