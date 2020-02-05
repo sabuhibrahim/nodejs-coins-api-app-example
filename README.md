@@ -1,11 +1,5 @@
 # NodeJS_Bitcoin_notification_engine
 
-#require
-```
-npm install express --save
-
-```
-
 #run
 ```
 npm install
