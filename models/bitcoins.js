@@ -5,15 +5,15 @@ let schema = new mongoose.Schema({
 	price : {type: Number},
 	hourly: {
 		price : {type: Number},
-		updated: { type: Date, default: Date.now }
+		updated: { type: Date, required: true}
 	},
 	daily: {
 		price : {type: Number},
-		updated: { type: Date, default: Date.now }
+		updated: { type: Date, required: true }
 	},
 	weekly: {
 		price : {type: Number},
-		updated: { type: Date, default: Date.now },
+		updated: { type: Date, required: true },
 	},
 	url : {type: String}
 });

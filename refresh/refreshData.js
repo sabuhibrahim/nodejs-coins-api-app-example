@@ -15,20 +15,27 @@ let refresh = async() =>{
 
 				resp.on('end', () => {
 					if (data) {
-						checkDateRules(coin, JSON.parse(data))
-						.then(update=>{
-							coin.price = update.price;
-							if (update.hourly) {
-								coin.hourly.price = update.hourly.price;
-							}
-							if (update.daily) {
-								coin.daily.price = update.daily.price;
-							}
-							if (update.weekly) {
-								coin.weekly.price = update.weekly.price;
-							}
-							coin.save();
-						});
+						try {
+							checkDateRules(coin, JSON.parse(data))
+							.then(update=>{
+								coin.price = update.price;
+								if (update.hourly) {
+									coin.hourly.price = update.hourly.price;
+									coin.hourly.updated = update.hourly.updated;
+								}
+								if (update.daily) {
+									coin.daily.price = update.daily.price;
+									coin.daily.updated = update.daily.updated;
+								}
+								if (update.weekly) {
+									coin.weekly.price = update.weekly.price;
+									coin.weekly.updated = update.weekly.updated;
+								}
+								coin.save();
+							});
+						} catch(e) {
+							console.log(e.message);
+						}
 					}
 				});
 

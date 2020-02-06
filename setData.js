@@ -25,9 +25,9 @@ mongoose
 					let coin = new Bitcoins({
 						title: item.name,
 						price: item.market_data.current_price.usd,
-						hourly: {price: item.market_data.current_price.usd},
-						daily : {price: item.market_data.current_price.usd},
-						weekly : {price: item.market_data.current_price.usd},
+						hourly: {price: item.market_data.current_price.usd, updated: new Date()},
+						daily : {price: item.market_data.current_price.usd, updated: new Date()},
+						weekly : {price: item.market_data.current_price.usd, updated: new Date()},
 						url : `https://api.coingecko.com/api/v3/coins/${item.id}`
 					});
 					coin.save();

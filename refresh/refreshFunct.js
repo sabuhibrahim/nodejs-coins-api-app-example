@@ -12,16 +12,19 @@ let checkDateRules = async (coin, data) => {
 	if(nowTime - (new Date(coin.hourly.updated)).getTime() > 3600 * 1000){
 		updates.hourly = {
 			price: data.market_data.current_price.usd,
+			updated : new Date()
 		};
 	}
 	if(nowTime - (new Date(coin.daily.updated)).getTime() > 24 * 3600 * 1000){
 		updates.daily = {
 			price: data.market_data.current_price.usd,
+			updated : new Date()
 		};
 	}
 	if(nowTime - (new Date(coin.weekly.updated)).getTime() >7 * 24 * 3600 * 1000){
 		updates.weekly = {
 			price: data.market_data.current_price.usd,
+			updated : new Date()
 		};
 	}
 

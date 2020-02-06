@@ -12,12 +12,12 @@ mongoose
 		console.log("Connection Successful");
 
 		// SET COINS DATA ???????>?>
-		Bitcoins.findOne({_id: "5e3b0f5b97ba0714bc3ce235"}).exec((err,bitcoin) => {
+		Bitcoins.findOne({_id: "5e3bba102b6356240cedeccc"}).exec((err,bitcoin) => {
 			let subscribe = new Subscribes({
 				coin : bitcoin,
-				user: "1",
-				rule: "increase_or_decrease_daily",
-				rule_value : "100"
+				user: "2",
+				rule: "increase_or_decrease_hourly",
+				rule_value : "10"
 			});
 			subscribe.save().then((data)=>console.log(data));
 		});

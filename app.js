@@ -45,7 +45,7 @@ mongoose
     setInterval(()=>{
       refresh()
       .then(()=>console.log("Coins data Refreshed"));
-    },10000);
+    },process.env.Coin_Refresh_Time);
   })
   .catch((err) => {
     console.log(err);

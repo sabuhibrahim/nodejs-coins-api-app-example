@@ -19,12 +19,24 @@ router.get('/coins/:id',(req, res, next)=>{
 
 router.get('/users/:id/subscribes',(req,res,next)=>{
 	Subscribes.find({user: req.params.id}).exec((err,subscribes)=>{
+		res.json({subscribes});
+	});	
+});
+
+router.get('/users/:id/subscribes/check',(req,res,next)=>{
+	Subscribes.find({user: req.params.id}).exec((err,subscribes)=>{
 		SubFunc.checkAll(subscribes)
 		.then(data=>res.json(data));
 	});	
 });
 
 router.get('/users/:id/subscribes/:sub_id',(req,res,next)=>{
+	Subscribes.findOne({_id: req.params.sub_id, user: req.params.id}).exec((err,subscribe)=>{
+		res.json({subscribe});
+	});
+});
+
+router.get('/users/:id/subscribes/:sub_id/check',(req,res,next)=>{
 	Subscribes.findOne({_id: req.params.sub_id, user: req.params.id}).exec((err,subscribe)=>{
 		SubFunc.check(subscribe)
 		.then(data=>res.json(data));
