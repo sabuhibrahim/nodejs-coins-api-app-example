@@ -23,7 +23,7 @@ mongoose
 			resp.on('end', () => {
 				JSON.parse(data).forEach((item) =>{
 					let coin = new Bitcoins({
-						title: item.name,
+						name: item.name,
 						price: item.market_data.current_price.usd,
 						hourly: {price: item.market_data.current_price.usd, updated: new Date()},
 						daily : {price: item.market_data.current_price.usd, updated: new Date()},
