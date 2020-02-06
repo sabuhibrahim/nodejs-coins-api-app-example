@@ -30,7 +30,7 @@ class Func{
 	{
 		let current = coin.price;
 		let later = coin.daily.price;
-		if((current-later) > value){
+		if((later-current) > value){
 			return true;
 		}
 		return false;
@@ -39,7 +39,7 @@ class Func{
 	{
 		let current = coin.price;
 		let later = coin.hourly.price;
-		if((current-later) > value){
+		if((later-current) > value){
 			return true;
 		}
 		return false;
@@ -48,7 +48,7 @@ class Func{
 	{
 		let current = coin.price;
 		let later = coin.weekly.price;
-		if((current-later) > value){
+		if((later-current) > value){
 			return true;
 		}
 		return false;

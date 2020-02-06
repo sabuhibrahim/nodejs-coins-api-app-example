@@ -13,7 +13,7 @@ mongoose
 		// SET COINS DATA ???????>?>
 
 		const Bitcoins = require("./models/bitcoins"); 
-		https.get('https://api.coingecko.com/api/v3/coins/', (resp) => {
+		https.get(process.env.BITCOIN_API_ALL, (resp) => {
 			let data = '';
 
 			resp.on('data', (chunk) => {
@@ -23,12 +23,12 @@ mongoose
 			resp.on('end', () => {
 				JSON.parse(data).forEach((item) =>{
 					let coin = new Bitcoins({
-						title: item.name,
+						name: item.name,
 						price: item.market_data.current_price.usd,
 						hourly: {price: item.market_data.current_price.usd, updated: new Date()},
 						daily : {price: item.market_data.current_price.usd, updated: new Date()},
 						weekly : {price: item.market_data.current_price.usd, updated: new Date()},
-						url : `https://api.coingecko.com/api/v3/coins/${item.id}`
+						url : process.env.BITCOIN_API_ALL+item.id
 					});
 					coin.save();
 				

@@ -25,7 +25,6 @@ class SubFunc {
 			id:subscribe._id, 
 			check : Func[subscribe.rule].apply(null, [coin, subscribe.rule_value])
 		};
-		
 		return respData;
 	}
 } 

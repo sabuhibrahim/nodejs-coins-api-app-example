@@ -46,10 +46,12 @@ router.get('/users/:id/subscribes/:sub_id/check',(req,res,next)=>{
 router.post('/subscribe/add', (req,res,next)=>{
 	let subscribe = new Subscribes({
 		coin : Bitcoins.findOne({_id: req.body.coinId}).exec((err,coin) => coin),
-		userId: req.body.userId,
+		user: req.body.userId,
 		rule: req.body.rule,
 		rule_value: req.body.rule_value,
 	});
+	subscribe.save()
+	.then((subsc)=>res.json({subsc}));
 });
 
 module.exports = router;
