@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 
 let schema = new mongoose.Schema({
-	coin: {type: String},
+	name: {type: String},
 	price : {type: Number},
 	hourly: {
 		price : {type: Number},
