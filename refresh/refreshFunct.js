@@ -2,7 +2,7 @@ const mongoose = require("mongoose");
 const Bitcoins = require("../models/bitcoins");
 
 
-let checkDateRules = async (coin, data) => {
+let checkDateRules = (coin, data) => {
 	// console.log(data);
 	let updates = {};
 	updates.price = data.market_data.current_price.usd;
