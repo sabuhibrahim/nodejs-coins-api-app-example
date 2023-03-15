@@ -1,7 +1,7 @@
 const https = require("https");
 let checkDateRules = require("../refresh/refreshFunct");
 
-let refresh = async() =>{
+let refresh = () =>{
 	const Bitcoins = require("../models/bitcoins"); 
 	let query = Bitcoins.find({}, (err,doc) => {});
 	query.exec().then((coins)=>{
